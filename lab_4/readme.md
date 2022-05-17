@@ -62,24 +62,24 @@ fig.tight_layout()
 
 
     
-![png](./images/output_1_0.png)
+![png1](./images/output_1_0.png)
 
 
 
 
     
-![png](./images/output_1_1.png)
+![png2](./images/output_1_1.png)
     
 
 
 
     
-![png](./images/output_1_2.png)
+![png3](./images/output_1_2.png)
     
 
 
 
     
-![png](./images/output_1_3.png)
+![png4](./images/output_1_3.png)
     
 

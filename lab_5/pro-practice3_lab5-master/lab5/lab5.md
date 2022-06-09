@@ -1,5 +1,5 @@
-首先安装程序运行必备的一些库
-
+# 按照文档添加库
+-
 
 ```python
 !pip install tflite-model-maker
@@ -186,8 +186,8 @@
     Successfully installed absl-py-1.0.0 astunparse-1.6.3 audioread-2.1.9 dataclasses-0.6 dill-0.3.5.1 dm-tree-0.1.7 fire-0.4.0 flatbuffers-1.12 gast-0.4.0 gin-config-0.5.0 google-api-python-client-2.49.0 google-auth-httplib2-0.1.0 google-auth-oauthlib-0.4.6 google-cloud-bigquery-3.1.0 google-cloud-bigquery-storage-2.13.1 google-cloud-core-2.3.0 google-crc32c-1.3.0 google-pasta-0.2.0 google-resumable-media-2.3.3 httplib2-0.20.4 kaggle-1.5.12 keras-2.9.0 keras-preprocessing-1.1.2 libclang-14.0.1 librosa-0.8.1 llvmlite-0.36.0 neural-structured-learning-1.3.1 numba-0.53.0 opencv-python-headless-4.5.5.64 opt-einsum-3.3.0 packaging-20.9 pooch-1.6.0 promise-2.3 py-cpuinfo-8.0.0 pyarrow-8.0.0 pybind11-2.9.2 resampy-0.2.2 sentencepiece-0.1.96 sounddevice-0.4.4 soundfile-0.10.3.post1 tensorboard-2.9.0 tensorflow-2.9.1 tensorflow-addons-0.17.0 tensorflow-datasets-4.5.2 tensorflow-estimator-2.9.0 tensorflow-hub-0.12.0 tensorflow-io-gcs-filesystem-0.26.0 tensorflow-metadata-1.8.0 tensorflow-model-optimization-0.7.2 tensorflowjs-3.18.0 termcolor-1.1.0 tf-models-official-2.3.0 tf-slim-1.1.0 tflite-model-maker-0.3.4 tflite-support-0.4.0 typeguard-2.13.3 uritemplate-4.1.1
     
 
-安装的时候遇到ERROR: Cannot uninstall 'llvmlite'.的问题。首先卸载llvmlite包，这里利用Anaconda Navigator中Environments组件管理和卸载相关的Package。
-
+# 安装的时候遇到ERROR: Cannot uninstall 'llvmlite'.的问题。首先卸载llvmlite包，这里利用Anaconda Navigator中Environments组件管理和卸载相关的Package。
+-
 
 ```python
 !pip install conda-repo-cli==1.0.4
@@ -250,7 +250,7 @@
     Requirement already satisfied: ruamel.yaml.clib>=0.2.6 in d:\download\anaconda\anaconda\lib\site-packages (from ruamel-yaml->anaconda-project==0.10.1) (0.2.6)
     
 
-导入相关的库
+#开始运行相关库和代码
 
 
 ```python
@@ -270,8 +270,7 @@ from tflite_model_maker.image_classifier import DataLoader
 import matplotlib.pyplot as plt
 ```
 
-获取数据
-从比较小的数据集开始训练。
+#进行数据训练
 
 
 ```python
@@ -296,8 +295,8 @@ train_data, test_data = data.split(0.9)
     INFO:tensorflow:Load image with size: 3670, num_label: 5, labels: daisy, dandelion, roses, sunflowers, tulips.
     
 
-第二步：训练Tensorflow模型
-
+# 第二步：训练Tensorflow模型
+-
 
 ```python
 inception_v3_spec = image_classifier.ModelSpec(uri='https://storage.googleapis.com/tfhub-modules/tensorflow/efficientnet/lite0/feature-vector/2.tar.gz')
@@ -341,8 +340,8 @@ model = image_classifier.create(train_data, model_spec=inception_v3_spec)
     103/103 [==============================] - 71s 688ms/step - loss: 0.5897 - accuracy: 0.9372
     
 
-评估模型
-
+# 评估模型
+-
 
 ```python
 loss, accuracy = model.evaluate(test_data)
@@ -351,8 +350,8 @@ loss, accuracy = model.evaluate(test_data)
     12/12 [==============================] - 11s 713ms/step - loss: 0.6163 - accuracy: 0.9183
     
 
-导出模型
-
+# 最后一步：导出模型
+-
 
 ```python
 model.export(export_dir='.')
@@ -383,5 +382,5 @@ model.export(export_dir='.')
 
     INFO:tensorflow:TensorFlow Lite model exported successfully: .\model.tflite
     
-
-生成的model.tflite文件就可以运用到lab3图形处理实验中识别花卉类型。
+-
+# 到此实验完毕，完成模型的训练，该模型已经可以在android相关程序中运行使用，功能为：识别花卉图片
